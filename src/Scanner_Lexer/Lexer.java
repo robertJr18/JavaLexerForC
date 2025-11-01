@@ -5,50 +5,60 @@ import java.util.*;
 
 public class Lexer {
     private static final Set<String> KEYWORDS = new HashSet<>(Arrays.asList(
-            "int", "main", "void", "if", "else", "while",
-            "return", "printf", "scanf", "break", "do"
+            "auto", "double", "int", "struct",
+            "break", "else", "long", "switch",
+            "case", "enum", "register", "typedef",
+            "char", "extern", "return", "union",
+            "const", "float", "short", "unsigned",
+            "continue", "for", "signed", "void",
+            "default", "goto", "sizeof", "volatile",
+            "do", "if", "static", "while",
+            "define", "elif", "endif", "error",
+            "ifdef", "ifndef", "include", "message", "undef",
+            "main", "printf", "scanf"
     ));
 
     private static final Map<String, String> SYMBOLS = new HashMap<>();
 
     static {
-        //SIMPLES
         SYMBOLS.put("{", "LBRACE");
         SYMBOLS.put("}", "RBRACE");
-        SYMBOLS.put("[", "LSQUARE");
-        SYMBOLS.put("]", "RSQUARE");
-        SYMBOLS.put("(", "LPAR");
-        SYMBOLS.put(")", "RPAR");
+        SYMBOLS.put("[", "LBRACKET");
+        SYMBOLS.put("]", "RBRACKET");
+        SYMBOLS.put("(", "LPAREN");
+        SYMBOLS.put(")", "RPAREN");
         SYMBOLS.put(";", "SEMI");
+        SYMBOLS.put(",", "COMMA");
+        SYMBOLS.put(".", "DOT");
         SYMBOLS.put("+", "PLUS");
         SYMBOLS.put("-", "MINUS");
         SYMBOLS.put("*", "MUL_OP");
-        SYMBOLS.put("&", "AND_OP");
         SYMBOLS.put("/", "DIV_OP");
         SYMBOLS.put("%", "MOD_OP");
-        SYMBOLS.put("|", "OR_OP");
-        SYMBOLS.put("^", "XOR_OP");
-        SYMBOLS.put("~", "NOTBIT_OP");
-        SYMBOLS.put("!", "NOT_OP");
-        SYMBOLS.put("=", "ASSIGN");
-        SYMBOLS.put("<", "LT");
-        SYMBOLS.put(">", "GT");
-        SYMBOLS.put(".", "DOT");
-        SYMBOLS.put(",", "COMMA");
-        SYMBOLS.put("#", "HASH");
-
-        //DOBLES
-        SYMBOLS.put("==", "EQ");
-        SYMBOLS.put("!=", "NOTEQ");
-        SYMBOLS.put("<=", "LTEQ");
-        SYMBOLS.put(">=", "GTEQ");
-        SYMBOLS.put("&&", "ANDAND");
-        SYMBOLS.put("||", "OROR");
-        SYMBOLS.put("<<", "SHL_OP");
+        SYMBOLS.put("&&", "AND");
+        SYMBOLS.put("||", "OR");
+        SYMBOLS.put("!", "NOT");
+        SYMBOLS.put("&", "BIT_AND");
+        SYMBOLS.put("|", "BIT_OR");
+        SYMBOLS.put("^", "BIT_XOR");
+        SYMBOLS.put("~", "BIT_NOT");
         SYMBOLS.put(">>", "SHR_OP");
-        SYMBOLS.put("->", "ARROW");
+        SYMBOLS.put("<<", "SHL_OP");
+        SYMBOLS.put(">", "GT");
+        SYMBOLS.put(">=", "GEQ");
+        SYMBOLS.put("<", "LT");
+        SYMBOLS.put("<=", "LEQ");
+        SYMBOLS.put("==", "EQ");
+        SYMBOLS.put("!=", "NEQ");
+        SYMBOLS.put("=", "ASSIGN");
         SYMBOLS.put("++", "INC_OP");
         SYMBOLS.put("--", "DEC_OP");
+        SYMBOLS.put("->", "ARROW");
+        SYMBOLS.put("#", "HASH");
+        SYMBOLS.put("\"", "QUOTE");
+        SYMBOLS.put("%f", "FORMAT_FLOAT");
+        SYMBOLS.put("%d", "FORMAT_INT");
+        SYMBOLS.put("%", "PERCENT");
     }
 
 

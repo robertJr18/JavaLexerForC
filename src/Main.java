@@ -17,8 +17,8 @@ public class Main {
         }
 
         try {
-            loadingAnimation("Leyendo archivo", 15);
-            dotsAnimation("Analizando tokens", 5);
+            loadingAnimation("Leyendo archivo", 25);
+            dotsAnimation("Analizando tokens", 7);
 
             System.out.println("\n--- TOKENS DETECTADOS ---\n");
             Lexer.scan(archivo);
